@@ -50,6 +50,7 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ligaadministration - Ladda upp data");
+        setLocationByPlatform(true);
         setResizable(false);
 
         tfChosenFilePath.setEditable(false);
@@ -74,6 +75,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         bUploadData.setText("Ladda upp data");
+        bUploadData.setEnabled(false);
         bUploadData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bUploadDataActionPerformed(evt);
@@ -83,6 +85,7 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane2.setBorder(null);
 
         taAppInstructions.setEditable(false);
+        taAppInstructions.setBackground(getBackground());
         taAppInstructions.setColumns(20);
         taAppInstructions.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         taAppInstructions.setLineWrap(true);
@@ -152,11 +155,12 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_bChooseFileActionPerformed
 
     private void bUploadDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUploadDataActionPerformed
-        JDialog dialog = new JDialog();
+        JDialog dialog = new JDialog(this);
         LoginWindow loginWindow = new LoginWindow();
         dialog.add(loginWindow);
         dialog.setResizable(false);
         dialog.pack();
+        dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
     }//GEN-LAST:event_bUploadDataActionPerformed
 
@@ -255,8 +259,17 @@ public class GUI extends javax.swing.JFrame {
 
     public void displayHTMLMessage(String returnMessage) {
         ReturnWindow dialog = new ReturnWindow(this, true);
-        
         dialog.setHTMLContent(returnMessage);
+        dialog.pack();
+        dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
+    }
+
+    public void setUploadButtonEnabled(boolean b) {
+        bUploadData.setEnabled(b);
+    }
+
+    public void clearLeagueInfoDisplay() {
+        epLeagueOutput.setText("");
     }
 }

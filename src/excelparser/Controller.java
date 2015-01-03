@@ -48,6 +48,7 @@ public class Controller {
             this.leagues = leagues;
             view.displayLeagueInfo(leagues);
             view.setChosenFilePath(chosenFile.getAbsolutePath());
+            view.setUploadButtonEnabled(true);
         } catch(ExcelParser.InvalidFileException ife) {
             view.displayError(ife.getMessage());
         }
@@ -62,8 +63,17 @@ public class Controller {
                 view.displayError("Nånting har gått horribelt fel!\n\nVar vänlig kontakta systemadministratören.");
             else
                 view.displayHTMLMessage(returnMessage);
+            
         } catch(Exception sqle) {
             view.displayError("Nånting gick fel med uppladdningen!\n\nVar vänlig kontakta din databasadministratör.\n\n"+sqle.getMessage());
         }
+    }
+    
+    private void clearFileData() {
+        this.chosenFile = null;
+        this.leagues = null;
+        view.setChosenFilePath("");
+        view.setUploadButtonEnabled(false);
+        view.clearLeagueInfoDisplay();
     }
 }

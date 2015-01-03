@@ -36,7 +36,7 @@ public class DAO {
         con.setRequestMethod("POST");
         con.setRequestProperty("User-Agent", USER_AGENT);
         con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-        String urlParameters = "leagues="+this.getJson(leagues)+"&username="+username+"&password="+password;
+        String urlParameters = "leagues="+this.getJson(leagues)+"&season=2014&username="+username+"&password="+password;
         
         // Send post request
         con.setDoOutput(true);
