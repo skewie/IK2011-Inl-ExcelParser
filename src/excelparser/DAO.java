@@ -28,7 +28,7 @@ public class DAO {
     private final String USER_AGENT = "Mozilla/5.0";
     
     public String uploadLeagueData(String username, String password, ArrayList<League> leagues) throws Exception {
-        String url = "http://localhost:8080/ik2011-inl1/Admin/Upload";
+        String url = "http://localhost:8080/LigaSystem/Admin/Upload";
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
