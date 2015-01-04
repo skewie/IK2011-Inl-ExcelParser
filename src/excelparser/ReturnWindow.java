@@ -105,5 +105,6 @@ public class ReturnWindow extends javax.swing.JDialog {
 
     public void setHTMLContent(String returnMessage) {
         jEditorPane1.setText(returnMessage);
+        jEditorPane1.setCaretPosition(0);
     }
 }
